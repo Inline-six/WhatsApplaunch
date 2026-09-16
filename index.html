@@ -71,21 +71,24 @@
 
   <script>
 function openWhatsApp() {
-  const intentUrl =
-    "intent://#Intent;" +
-    "package=com.whatsapp;" +
+  const startTime = Date.now();
+
+  // Android intent to open the WhatsApp app
+  window.location.href =
+    "intent://send/#Intent;" +
     "scheme=whatsapp;" +
+    "package=com.whatsapp;" +
     "end";
 
-  // Try to launch the installed Android WhatsApp app
-  window.location.href = intentUrl;
-
-  // Fallback to WhatsApp Web
+  // If the app didn't open, go to WhatsApp's website
   setTimeout(function () {
-    window.location.href = "https://web.whatsapp.com/";
+    if (Date.now() - startTime < 2500) {
+      window.location.href = "https://www.whatsapp.com/";
+    }
   }, 2000);
 }
 </script>
+
 
 </body>
 </html>
