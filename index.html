@@ -62,10 +62,7 @@
 
   <div class="card">
     <h1>WhatsApp</h1>
-
-    <p>
-      Tap below to open WhatsApp on Google Play.
-    </p>
+    <p>Tap below to open WhatsApp.</p>
 
     <button onclick="openWhatsApp()">
       Open WhatsApp
@@ -74,11 +71,15 @@
 
   <script>
     function openWhatsApp() {
-      window.location.href =
-        "https://play.google.com/store/apps/details?id=com.whatsapp";
+      // Try to open the WhatsApp Android app
+      window.location.href = "whatsapp://";
+
+      // If WhatsApp isn't installed, open WhatsApp Web
+      setTimeout(function () {
+        window.location.href = "https://web.whatsapp.com/";
+      }, 1500);
     }
   </script>
 
 </body>
 </html>
-
