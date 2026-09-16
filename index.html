@@ -71,23 +71,10 @@
 
   <script>
 function openWhatsApp() {
-  const startTime = Date.now();
-
-  // Android intent to open the WhatsApp app
-  window.location.href =
-    "intent://send/#Intent;" +
-    "scheme=whatsapp;" +
-    "package=com.whatsapp;" +
-    "end";
-
-  // If the app didn't open, go to WhatsApp's website
-  setTimeout(function () {
-    if (Date.now() - startTime < 2500) {
-      window.location.href = "https://www.whatsapp.com/";
-    }
-  }, 2000);
+  window.location.href = "whatsapp://send";
 }
 </script>
+
 
 
 </body>
