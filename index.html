@@ -70,16 +70,22 @@
   </div>
 
   <script>
-    function openWhatsApp() {
-      // Try to open the WhatsApp Android app
-      window.location.href = "whatsapp://";
+function openWhatsApp() {
+  const intentUrl =
+    "intent://#Intent;" +
+    "package=com.whatsapp;" +
+    "scheme=whatsapp;" +
+    "end";
 
-      // If WhatsApp isn't installed, open WhatsApp Web
-      setTimeout(function () {
-        window.location.href = "https://web.whatsapp.com/";
-      }, 1500);
-    }
-  </script>
+  // Try to launch the installed Android WhatsApp app
+  window.location.href = intentUrl;
+
+  // Fallback to WhatsApp Web
+  setTimeout(function () {
+    window.location.href = "https://web.whatsapp.com/";
+  }, 2000);
+}
+</script>
 
 </body>
 </html>
