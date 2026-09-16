@@ -62,37 +62,23 @@
 
   <div class="card">
     <h1>WhatsApp</h1>
-    <p>Tap below to open WhatsApp.</p>
+
+    <p>
+      Tap below to open WhatsApp on Google Play.
+    </p>
 
     <button onclick="openWhatsApp()">
       Open WhatsApp
     </button>
   </div>
 
-<script>
-function openWhatsApp() {
-  const startTime = Date.now();
-
-  // Android intent to open the WhatsApp app
-  window.location.href =
-    "intent://send/#Intent;" +
-    "scheme=whatsapp;" +
-    "package=com.whatsapp;" +
-    "end";
-
-  // If the app didn't open, go to WhatsApp's website
-  setTimeout(function () {
-    if (Date.now() - startTime < 2500) {
-      window.location.href = "https://www.whatsapp.com/";
+  <script>
+    function openWhatsApp() {
+      window.location.href =
+        "https://play.google.com/store/apps/details?id=com.whatsapp";
     }
-  }, 2000);
-}
-</script>
-
-
-
-
-
+  </script>
 
 </body>
 </html>
+
